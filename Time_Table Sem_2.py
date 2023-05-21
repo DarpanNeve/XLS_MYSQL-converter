@@ -9,7 +9,10 @@ classroom_list=[]
 # Create a new workbook
 workbook = openpyxl.Workbook()
 teacher=['AAD']
-classroom=[]
+classroom=['6405CR','6401CR']
+time=[9.00,10.00,11.10,12.10,1.00,2.00,3.00,4.00,5.00]
+
+
 
 # Select the worksheet you want to edit (by default, there is one called 'Sheet')
 worksheet = workbook.active
