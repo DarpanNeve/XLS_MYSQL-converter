@@ -12,7 +12,7 @@ worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT",
                  "BATCH", "CLASSROOM", "TEACHER", "TYPE"])
 
 # Load Excel file using pandas
-df = pd.read_excel('Sem_2.xlsx', sheet_name='Final Copy')
+df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx', sheet_name='Final Copy')
 
 # Convert pandas DataFrame to numpy array
 data = np.array(df)

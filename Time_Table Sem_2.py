@@ -1,29 +1,18 @@
-import string
 import pandas as pd
 import numpy as np
 import openpyxl
-teachers_list=[]
-classroom_list=[]
 
 
 # Create a new workbook
 workbook = openpyxl.Workbook()
-teacher=['AAD']
-classroom=['6405CR','6401CR']
-time=[9.00,10.00,11.10,12.10,1.00,2.00,3.00,4.00,5.00]
-
-
-
-# Select the worksheet you want to edit (by default, there is one called 'Sheet')
 worksheet = workbook.active
 worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT", "BATCH", "CLASSROOM", "TEACHER", "TYPE"])
 
 # Load Excel file using pandas
-df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx', sheet_name='Final Copy')
+df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2_old.xlsx', sheet_name='Final Copy')
 
 # Convert pandas DataFrame to numpy array
 data = np.array(df)
-
 for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"], start=1):
     i = (count - 1) * 3 + 4
     ascii = 65
@@ -74,5 +63,4 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
         ascii += 1
         row += 1
         i += 3
-
 workbook.save('Time_Table_output.xlsx')
