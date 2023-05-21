@@ -8,6 +8,8 @@ classroom_list=[]
 
 # Create a new workbook
 workbook = openpyxl.Workbook()
+teacher=['AAD']
+classroom=[]
 
 # Select the worksheet you want to edit (by default, there is one called 'Sheet')
 worksheet = workbook.active
