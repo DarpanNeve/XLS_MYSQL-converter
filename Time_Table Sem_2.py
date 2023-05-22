@@ -51,8 +51,10 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
                 
             for cv, t, cr in zip(cell_values, teachers, class_rooms):
                 if cv == "nan" or t == "nan" or cr == "nan":
-                    cv = "Nan"
-                elif cv == "*Incase of theory lecture it will end at 1:10 pm":
+                    print(day + "     " + div + "     "+start+"     "+end + "     " + cv +
+                          "    " + batch+"     " + cr + "    " + t+"     "+type_value)
+                    worksheet.append([day, div, start, end, cv, batch, cr, t, type_value])
+                elif cv == "Theory lecture will end at 12:10pm":
                     cv = "Lunch Break"
                 else:
                     print(day + "     " + div + "     "+start+"     "+end + "     " + cv +
@@ -64,4 +66,3 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
         i += 3
 
 workbook.save('Time_Table_output.xlsx')
-    
