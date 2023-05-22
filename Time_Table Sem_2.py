@@ -12,7 +12,7 @@ worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT",
                  "BATCH", "CLASSROOM", "TEACHER", "TYPE"])
 
 # Load Excel file using pandas
-df = pd.read_excel('C:\\Users\\darpa\\OneDrive\\Desktop\\XLS_MYSQL-converter-main\\XLS_MYSQL-converter-main\\Sem_2.xlsx',sheet_name='Final Copy')
+df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx',sheet_name='Final Copy')
 
 # Convert pandas DataFrame to numpy array
 data = np.array(df)
@@ -59,31 +59,26 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
             for cv, t, cr in zip(cell_values, teachers, class_rooms):
                 if cv == "*Incase of theory lecture it will end at 1:10 pm":
                     cv = "Lunch Break"
-                    worksheet.append(
-                        [day, div, start, end, cv, batch, cr, t, type])
+                elif cv=="Life Skills":
+                    j+=1
                 elif cv == "Theory lecture will end at 12:10pm":
                     cv = "Lunch Break"
-                    worksheet.append(
-                        [day, div, start, end, cv, batch, cr, t, type])
                 elif "1" in cv:
-                    worksheet.append(
-                        [day, div, start, end, cv, 1, cr, t, type])
+                    batch="1"
                 elif "2" in cv:
-                    worksheet.append(
-                        [day, div, start, end, cv, 2, cr, t, type])
+                    batch="2"
                 elif "3" in cv:
-                    worksheet.append(
-                        [day, div, start, end, cv, 3, cr, t, type])
+                    batch="3"
+                    j+=1
                 elif cv == "nan" or t == "nan" or cr == "nan":
                     cv = "Nan"
-                else:
-                    print(day + "     " + div + "     "+start+"     "+end + "     " + cv +
+                print(day + "     " + div + "     "+start+"     "+end + "     " + cv +
                           "    " + batch+"     " + cr + "    " + t+"     "+type)
-                    worksheet.append(
+                worksheet.append(
                         [day, div, start, end, cv, batch, cr, t, type])
             j += 1
         ascii += 1
         row += 1
         i += 3
 
-workbook.save('C:\\Users\\darpa\\OneDrive\\Desktop\\XLS_MYSQL-converter-main\\XLS_MYSQL-converter-main\\Time_Table_output.xlsx')
+workbook.save('/home/darpan/vscode/XLS_MYSQL-converter/Time_Table_output.xlsx')
