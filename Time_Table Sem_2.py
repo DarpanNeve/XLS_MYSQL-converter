@@ -2,21 +2,16 @@ import string
 import pandas as pd
 import numpy as np
 import openpyxl
-
 # Create a new workbook
 workbook = openpyxl.Workbook()
-
 # Select the worksheet you want to edit (by default, there is one called 'Sheet')
 worksheet = workbook.active
 worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT",
                  "BATCH", "CLASSROOM", "TEACHER", "TYPE"])
-
 # Load Excel file using pandas
 df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx',sheet_name='Final Copy')
-
 # Convert pandas DataFrame to numpy array
 data = np.array(df)
-
 for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"], start=1):
     i = (count - 1) * 3 + 4
     ascii = 65
