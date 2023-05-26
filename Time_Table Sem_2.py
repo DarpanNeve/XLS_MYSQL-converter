@@ -75,5 +75,4 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
         ascii += 1
         row += 1
         i += 3
-
 workbook.save('/home/darpan/vscode/XLS_MYSQL-converter/Time_Table_output.xlsx')
