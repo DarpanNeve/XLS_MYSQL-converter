@@ -66,9 +66,11 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
                     batch="3"
                     j+=1
                 elif cv == "nan" or t == "nan" or cr == "nan":
-                    cv = "Nan"
-            print(day + "     " + div + "     "+start+"     "+end + "     " + cv +"    " + batch+"     " + cr + "    " + t+"     "+type)
-            worksheet.append([day, div, start, end, cv, batch, cr, t, type])
+                    cv = " "
+                    t=" "
+                    cr=" "
+                print(day + "     " + div + "     "+start+"     "+end + "     " + cv +"    " + batch+"     " + cr + "    " + t+"     "+type)
+                worksheet.append([day, div, start, end, cv, batch, cr, t, type])
             j += 1
         ascii += 1
         row += 1
