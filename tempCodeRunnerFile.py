@@ -2,21 +2,16 @@ import string
 import pandas as pd
 import numpy as np
 import openpyxl
-
 # Create a new workbook
 workbook = openpyxl.Workbook()
-
 # Select the worksheet you want to edit (by default, there is one called 'Sheet')
 worksheet = workbook.active
 worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT",
                  "BATCH", "CLASSROOM", "TEACHER", "TYPE"])
-
 # Load Excel file using pandas
-df = pd.read_excel('C:/Users/mywor/OneDrive/Desktop/programming/opensource/XLS_MYSQL-converter/Sem_2.xlsx',sheet_name='Final Copy')
-
+df = pd.read_excel('C:/Users/mywor/OneDrive\Desktop/programming/opensource/XLS_MYSQL-converter/Sem_2.xlsx',sheet_name='Final Copy')
 # Convert pandas DataFrame to numpy array
 data = np.array(df)
-
 for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"], start=1):
     i = (count - 1) * 3 + 4
     ascii = 65
@@ -39,17 +34,6 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
                     start = timing[0:b]
                     end = timing[b+1:c]
                 b = b+1
-
-            # Get the value of the next cell
-            next_cell_value = str(data[i][j+1])
-
-            # Check if the next cell is empty and the current cell is a practical
-            if next_cell_value == "nan" and "/" in cell_value:
-                # If it is, update the end time to the end time of the next cell
-                next_timing = str(data[3][j+1]).replace(":", ".")
-                if "-" in next_timing:
-                    end = next_timing.split("-")[1]
-
             if "/" in cell_value:
                 cell_values = cell_value.split("/")
                 batch = str(len(cell_values))
@@ -91,5 +75,4 @@ for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRID
         ascii += 1
         row += 1
         i += 3
-
 workbook.save('C:/Users/mywor/OneDrive/Desktop/programming/opensource/XLS_MYSQL-converter/Time_Table_output.xlsx')
