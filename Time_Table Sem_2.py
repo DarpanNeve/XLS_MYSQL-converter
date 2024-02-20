@@ -11,6 +11,7 @@ worksheet.append(["DAY", "DIVISION", "START", "END", "SUBJECT",
 # Load Excel file using pandas
 df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx',sheet_name='Final Copy')
 # Convert pandas DataFrame to numpy array
+
 data = np.array(df)
 for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"], start=1):
     i = (count - 1) * 3 + 4
