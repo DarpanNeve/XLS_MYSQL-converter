@@ -14,7 +14,6 @@ df = pd.read_excel('/home/darpan/vscode/XLS_MYSQL-converter/Sem_2.xlsx',sheet_na
 data = np.array(df)
 for count, day in enumerate(["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"], start=1):
     i = (count - 1) * 3 + 4
-    
     ascii = 65
     row = (count - 1) * 60 + 2
     while i < 53:
